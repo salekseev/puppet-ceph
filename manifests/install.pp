@@ -22,6 +22,22 @@ class ceph::install inherits ceph {
 
   #FIXME: Ensure ceph user/group
 
+  file { '/lib/udev/rules.d/95-ceph-osd.rules':
+    ensure  => 'present',
+    source  => 'puppet:///modules/ceph/95-ceph-osd.rules',
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+  }
+
+   file { '/lib/udev/rules.d/95-ceph-osd-alt.rules':
+     ensure  => 'present',
+     source  => 'puppet:///modules/ceph/95-ceph-osd-alt.rules',
+     mode    => '0644',
+     owner   => 'root',
+     group   => 'root',
+   }
+
   file { '/var/lib/ceph':
     ensure => directory,
     owner  => 'root',
