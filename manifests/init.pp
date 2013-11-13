@@ -35,7 +35,10 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class ceph {
+class ceph (
+  $release         = $ceph::params::release,
+  $packages_ensure = $ceph::params::packages_ensure,
+) inherits ceph::params {
 
 
 }

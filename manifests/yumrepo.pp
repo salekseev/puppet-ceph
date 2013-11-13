@@ -35,9 +35,7 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class ceph::yumrepo (
-  $release = $ceph::params::release
-) inherits epel::params {
+class ceph::yumrepo inherits ceph {
 
   yumrepo { 'ceph':
     descr    => "Ceph ${release} packages repository",
