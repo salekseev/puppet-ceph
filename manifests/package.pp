@@ -10,12 +10,9 @@
 #
 # == Authors
 #
-#  François Charlier francois.charlier@enovance.com
+#  Stas Alekseev <stas.alekseev@gmail.com>
 #
-# == Copyright
-#
-# Copyright 2012 eNovance <licensing@enovance.com>
-#
+
 class ceph::package ( $packages_ensure = $ceph::params::packages_ensure ) inherits ceph::params {
 
   package { 'ceph':
@@ -25,18 +22,18 @@ class ceph::package ( $packages_ensure = $ceph::params::packages_ensure ) inheri
 
   #FIXME: Ensure ceph user/group
 
-  #file { '/var/lib/ceph':
-  #  ensure => directory,
-  #  owner  => 'root',
-  #  group  => 0,
-  #  mode   => '0755'
-  #}
+  file { '/var/lib/ceph':
+    ensure => directory,
+    owner  => 'root',
+    group  => 0,
+    mode   => '0755'
+  }
 
-  #file { '/var/run/ceph':
-  #  ensure => directory,
-  #  owner  => 'root',
-  #  group  => 0,
-  #  mode   => '0755'
-  #}
+  file { '/var/run/ceph':
+    ensure => directory,
+    owner  => 'root',
+    group  => 0,
+    mode   => '0755'
+  }
 
 }
